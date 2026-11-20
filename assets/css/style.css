@@ -1,18 +1,21 @@
     @font-face {
         font-family: "NeueMontreal Regular";
-        src: url("./NeuMontreal/NeueMontreal-Regular.otf") format("opentype");
+        src: url("../fonts/NeueMontreal-Regular.otf") format("opentype");
     }
 
     @font-face {
         font-family: "NeueMontreal Bold";
-        src: url("./NeuMontreal/NeueMontreal-Bold.otf") format("opentype");
+        src: url("../fonts/NeueMontreal-Bold.otf") format("opentype");
     }
 
     @font-face {
         font-family: Akzidenz-Grotesk Next;
-        src: url("./NeuMontreal/AkzidGrtskNext-Bold.ttf") format("truetype");
+        src: url("../fonts/AkzidGrtskNext-Bold.ttf") format("truetype");
     }
 
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
 
     .about-section {
         position: relative;
@@ -22,7 +25,7 @@
         scrollbar-width: none;
         width: 100%;
         
-        background-image: url('../a-img/dot.png');
+        background-image: url('../images/dot.png');
         font-family: "NeueMontreal Regular", sans-serif;
     }
 
@@ -38,23 +41,26 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .nav {
+    .site-header {
         position: sticky;
         top: 10px;
         z-index: 100;
+        height: 0;
+    }
 
-        padding: 1rem 5rem;
+    .nav {
+        padding: .7rem clamp(1rem, 3vw, 2.25rem);
         border: 2px solid white;
         display: flex;
         flex-direction: row;
-        gap: 3rem;
+        gap: clamp(.65rem, 2vw, 1.75rem);
         margin: auto;
     }
 
     .nav a {
         color: black;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 1rem;
     }
 
     .a-intro,
@@ -72,24 +78,23 @@
     }
 
     .a-intro {
-        padding-top: 1rem;
-        top: -60px;
+        padding-top: 3.5rem;
     }
 
     .a-services {
-        margin: 10rem 0 15rem 0;
+        margin: clamp(2rem, 5vw, 5rem) 0;
     }
 
     .a-education {
-        margin-bottom: 15rem;
+        margin-bottom: clamp(3rem, 7vw, 7rem);
     }
 
     .a-experience {
-        margin-bottom: 25rem;
+        margin-bottom: clamp(3rem, 7vw, 7rem);
     }
 
     .top-left {
-        top: -60px;
+        top: -30px;
         left: -120px;
     }
 
@@ -110,10 +115,10 @@
         right: -330px
     }
 
-    .raul {
+    .backdrop-heading {
         font-family: "NeueMontreal Bold";
-        font-size: 350px;
-        line-height: 262px;
+        font-size: clamp(8rem, 17vw, 16rem);
+        line-height: .78;
         font-weight: 700;
         position: absolute;
         z-index: -1;
@@ -124,7 +129,7 @@
         color: transparent;
     }
 
-    .raul.duplicate {
+    .backdrop-heading.duplicate {
         background: none;
         color: #929292;
         --xpercent: 50%;
@@ -156,11 +161,11 @@
 
     .intro-box {
         margin-bottom: 2rem;
-        width: 80%;
+        width: min(92%, 40rem);
         max-width: 800px;
         text-align: center;
         border-radius: 22px;
-        padding: 1.5rem 2rem;
+        padding: 1rem clamp(1rem, 3vw, 2rem);
 
         background: linear-gradient(135deg, rgba(222, 220, 220, 0.15), rgba(204, 204, 204, 0.3));
         border: 3px solid #ffffff;
@@ -170,18 +175,17 @@
     }
 
     .intro-box h1 {
-        font-size: 68px;
-        font-weight: 600;
-        line-height: 78px;
+        font-size: clamp(1.75rem, 3.25vw, 2.8rem);
+        font-weight: 400;
+        line-height: 1.08;
         margin: 1rem 0;
     }
 
     .profile-vector {
-        width: 90%;
-        max-width: 620px;
+        width: min(92vw, 62vh, 36rem);
         margin-bottom: -1.15rem;
-        margin-top: 10%;
-        margin-right: 4rem;
+        margin-top: 7vh;
+        margin-right: 1.5rem;
     }
 
     .buttons {
@@ -198,11 +202,11 @@
         gap: 10px;
         align-items: center;
         justify-content: center;
-        padding: 0.8rem 1.5rem;
+        padding: .65rem 1rem;
         border: none;
         border-radius: 12px;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 1rem;
         font-weight: 500;
         text-decoration: none;
         width: fit-content;
@@ -223,41 +227,40 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 90%;
+        width: min(90%, 68rem);
         margin: 0 auto;
 
     }
 
     .a-service h2 {
-        width: 80%;
-        max-width: 600px;
+        width: 100%;
+        max-width: 17ch;
 
-        font-size: 64px;
-        line-height: 58px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
 
         font-weight: 500;
-        margin: 5rem 0 6rem 5rem;
+        margin: 2rem 0;
     }
 
     .s-boxes {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
         width: 100%;
-        margin: 0 auto 2rem 0;
+        max-width: 76rem;
+        margin: 0 auto 2rem;
     }
 
     .s-box {
         cursor: pointer;
         position: relative;
-        border-radius: 48px;
-        padding: 1.5rem;
-        width: 90%;
-        max-width: 400px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        border-radius: 24px;
+        padding: clamp(1.2rem, 1.8vw, 1.5rem);
+        display: grid;
+        grid-template-rows: minmax(5rem, 1fr) auto auto;
+        align-items: start;
+        gap: .75rem;
 
         /* background: linear-gradient(45deg, rgb(255, 255, 255, 0.8), rgb(240, 240, 240, 0.7));
         box-shadow: inset 16px 2px 12px rgba(0, 0, 0, 0.03),
@@ -272,6 +275,7 @@
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 
         transition: all 0.4s ease;
+        min-height: 22.5rem;
     }
 
     /* .s-box:hover{
@@ -287,7 +291,7 @@
         bottom: 0;
         pointer-events: none;
         z-index: 0;
-        border-radius: 48px;
+        border-radius: inherit;
         opacity: 0;
 
         transition: all 0.4s ease;
@@ -322,20 +326,18 @@
     }
 
     .s-box h3 {
-        font-size: 38px;
-        line-height: 48px;
+        font-size: clamp(1.25rem, 2vw, 1.55rem);
+        line-height: 1.15;
         font-weight: 500;
-        margin-top: 55%;
-        margin-left: 1rem;
-        margin-bottom: 0.5rem;
+        margin: 0;
         transition: all 0.4s ease;
 
     }
 
     .s-box p {
-        font-size: 20px;
-        line-height: 28px;
-        margin: 0 3rem 1.5rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
         transition: all 0.4s ease;
 
     }
@@ -345,10 +347,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 25px;
+        padding: 14px;
         background: linear-gradient(90deg, white, rgb(225, 224, 224, 0.6));
         border: 2px solid rgb(255, 255, 255);
-        border-radius: 32px;
+        border-radius: 20px;
         width: fit-content;
         text-align: center;
         backdrop-filter: blur(10px);
@@ -369,12 +371,11 @@
         flex-direction: row;
         align-items: start;
         justify-content: space-between;
-
     }
 
     .icon-box svg {
-        width: 48px;
-        height: 48px;
+        width: 32px;
+        height: 32px;
 
 
         cursor: pointer;
@@ -400,14 +401,14 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 88%;
+        width: min(90%, 68rem);
         margin: 0 auto;
     }
 
     .edu-boxes {
         display: flex;
         flex-direction: column;
-        gap: 6rem;
+        gap: 3rem;
         margin-top: 0;
         width: 50%;
     }
@@ -479,8 +480,8 @@
 
     .edu-text h3 {
         font-weight: 400;
-        font-size: 38px;
-        line-height: 48px;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        line-height: 1.16;
         letter-spacing: -2%;
         margin-bottom: 0;
     }
@@ -491,9 +492,9 @@
         align-items: center;
         gap: 10px;
         font-style: Regular;
-        font-size: 20px;
+        font-size: 1rem;
         font-weight: 400;
-        line-height: 28px;
+        line-height: 1.5;
         letter-spacing: 2%;
 
     }
@@ -518,20 +519,20 @@
     .ex-boxes {
         display: flex;
         flex-direction: column;
-        gap: 6rem;
+        gap: 2.5rem;
         margin: 0 8rem 0 auto;
         width: 70%;
     }
 
     .a-exp {
-        width: 88%;
+        width: min(90%, 68rem);
         margin: auto;
     }
 
     .ex-box {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: .4rem;
         align-items: flex-end;
     }
 
@@ -549,8 +550,8 @@
 
     .ex-box h3 {
         font-weight: 500;
-        font-size: 38px;
-        line-height: 48px;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        line-height: 1.16;
         text-align: right;
         margin: 0;
     }
@@ -559,9 +560,9 @@
 
         font-weight: 400;
         font-style: Regular;
-        font-size: 20px;
+        font-size: 1rem;
         color: #7a7a7a;
-        line-height: 28px;
+        line-height: 1.5;
         letter-spacing: 2%;
         text-align: right;
         margin: 0;
@@ -588,9 +589,9 @@
         color: black;
         font-weight: 700;
 
-        font-size: 150px;
+        font-size: clamp(3.3rem, 7vw, 6.25rem);
 
-        line-height: 140px;
+        line-height: .95;
 
         text-transform: uppercase;
         margin: 0;
@@ -610,9 +611,9 @@
 
         font-weight: 400;
         font-style: Regular;
-        font-size: 38px;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
 
-        line-height: 48px;
+        line-height: 1.16;
         letter-spacing: -2%;
         text-align: right;
 
@@ -627,15 +628,15 @@
     }
 
     .sc-links a svg {
-        height: 78px;
-        width: 78px;
+        height: 3rem;
+        width: 3rem;
     }
 
     .f-links {
         display: flex;
         flex-direction: row;
         gap: 1.5rem;
-        margin-top: 30%;
+        margin-top: 2rem;
         justify-content: end;
     }
 
@@ -643,6 +644,12 @@
         text-decoration: none;
         color: black;
         font-size: 16px;
+    }
+
+    .f-links .developer-credit {
+        color: #164fa3;
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
     }
 
     .e-right-down {
@@ -677,27 +684,13 @@
 
     @media (max-width: 992px) {
 
-        .raul {
-            font-size: 250px;
-            line-height: 186px;
-
-        }
-
         .e-top-right,
         .e-right-down {
             width: 50%;
         }
 
-        .intro-box h1 {
-            font-size: 50px;
-            line-height: 60px;
-
-        }
-
         .s-boxes {
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .a-education {
@@ -708,9 +701,9 @@
 
             flex-direction: column;
             width: 90%;
-            margin: 5rem auto 0 auto;
+            margin: 2rem auto 0;
             align-items: center;
-            gap: 5rem;
+            gap: 2rem;
         }
 
         .edu-boxes {
@@ -745,7 +738,7 @@
         }
 
         .a-footer {
-            margin-top: 7rem;
+            margin-top: 3rem;
             gap: 3rem;
             flex-direction: column;
             align-items: flex-end;
@@ -755,35 +748,13 @@
             width: 100%;
         }
 
-        .f-text h1 {
-            font-size: 120px;
-            line-height: 105px;
-        }
-
         svg.squiggle {
             display: none;
         }
     }
 
     @media (max-width: 768px) {
-        .nav {
-            padding: 1rem 2rem;
-            gap: 1.5rem;
-        }
-
-        .intro-box h1 {
-            font-size: 40px;
-            line-height: 48px;
-
-        }
-
-        .raul {
-            font-size: 200px;
-            line-height: 150px;
-        }
-
         .profile-vector {
-            margin-top: 20%;
             margin-right: 0;
         }
 
@@ -792,21 +763,8 @@
             margin: 3rem auto;
         }
 
-        .a-service h2 {
-            font-size: 50px;
-            line-height: 58px;
-            margin: 2rem 0 4rem 5rem;
-        }
-
         .a-services {
             margin: 5rem 0 2rem 0;
-        }
-
-        .edu-text h3,
-        .ex-box h3 {
-            font-size: 35px;
-            line-height: 42px;
-
         }
 
         .edu-icon,
@@ -847,21 +805,6 @@
 
 
 
-        .f-text h1 {
-            font-size: 95px;
-            line-height: 90px;
-        }
-
-        .f-mail {
-            font-size: 35px;
-            line-height: 40px;
-        }
-
-        .sc-links a svg {
-            height: 65px;
-            width: 65px;
-        }
-
         .f-links {
             margin-top: 4rem;
         }
@@ -871,7 +814,17 @@
         }
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 700px) {
+        .s-boxes {
+            grid-template-columns: 1fr;
+        }
+
+        .s-box {
+            min-height: auto;
+            padding-block: 1.75rem;
+            grid-template-rows: auto auto auto;
+        }
+
         .profile-vector {
 
             margin-bottom: -0.9rem;
@@ -883,11 +836,6 @@
             left: -141px;
         }
 
-        .f-text h1 {
-            font-size: 80px;
-            line-height: 75px;
-        }
-
         .f-links {
             flex-direction: column;
             align-items: end;
@@ -895,24 +843,9 @@
     }
 
     @media (max-width: 500px) {
-        .nav {
-            padding: 1rem;
-            gap: 1rem;
-        }
-
-        .intro-box h1 {
-            font-size: 30px;
-            line-height: 43px;
-        }
-
         .buttons {
             flex-direction: column;
             align-items: center;
-        }
-
-        .raul {
-            font-size: 157px;
-            line-height: 121px;
         }
 
         .top-left {
@@ -920,25 +853,9 @@
             left: -120px;
         }
 
-        .a-service h2 {
-            font-size: 40px;
-            line-height: 50px;
-            margin: 2rem auto;
-        }
-
         .top-right {
             top: 0;
             right: -20px;
         }
 
-        .edu-text h3,
-        .ex-box h3 {
-            font-size: 30px;
-            line-height: 38px;
-        }
-
-        .f-text h1 {
-            font-size: 62px;
-            line-height: 59px;
-        }
     }

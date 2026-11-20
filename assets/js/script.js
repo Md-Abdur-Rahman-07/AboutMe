@@ -29,7 +29,7 @@ window.addEventListener('scroll', scroll);
 
 
 window.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.raul.duplicate');
+    const elements = document.querySelectorAll('.backdrop-heading.duplicate');
 
     elements.forEach(el => {
         const xTo = gsap.quickTo(el, '--xpercent', { duration: 0.4, ease: "back.out(1.7)" });
